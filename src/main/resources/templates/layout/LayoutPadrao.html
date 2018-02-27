@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	
+	<meta charset="UTF-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+	
+	<title>App Eventos</title>
+	
+	  <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+</head>
+
+
+<body>
+
+
+
+    <!-- CRIANDO O 'NAVBAR'  -->
+	<nav>
+	
+		<div class="nav-wrapper">
+			
+			<a th:href="@{/}" class="brand-logo"><i class="material-icons">store</i>Eventos</a>
+			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+			<ul class="side-nav" id="mobile-demo">
+				<li><a th:href="@{/cadastrarEvento}"><i class="material-icons">store</i>Eventos</a></li>
+				<li><a th:href="@{/mapasEvento}"><i class="material-icons">map</i>Mapas de Eventos</a></li>
+				<li><a href="#"><i class="material-icons">looks_one</i>Top 10</a></li>
+				<li><a href="#"><i class="material-icons">streetview</i>Termo de Uso</a></li>
+				<li><a th:href="@{/sobre}"><i class="material-icons">infob</i>Sobre</a></li>
+				
+			</ul>
+
+
+
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				
+				<li><a th:href="@{/cadastrarEvento}">Cadastro de Eventos</a></li>
+				<li><a th:href="@{/mapasEvento}">Mapas de Eventos</a></li>
+				
+				
+				<li><a href="#"><i class="material-icons">more_vert</i></a></li>
+			</ul>
+			
+			
+			
+		</div>
+		
+		
+	</nav>
+
+
+    <!-- CONTEÚDO PRINCIPAL DA APLICAÇÃO -->
+	<section layout:fragment="conteudo">
+		<p>Conteúdo principal</p>
+	</section>
+
+
+
+
+
+<!-- CRIANDO O 'FOOTER' da aplicação -->
+	<footer class="page-footer">
+          
+          <div class="container">
+            
+            <div class="row">
+            
+              <div class="col l6 s12">
+                <h5 class="white-text">Eventos On-line</h5>
+                <p class="grey-text text-lighten-4">Tudo sobre os melhores eventos Estadual e Mundial.</p>
+              </div>
+              
+              </div>
+            </div>
+
+		<div class="footer-copyright">
+
+			<div class="container">© 2018 Copyright SRSolution Ltda - Todos os direitos reservados</div>
+		</div>
+
+	</footer>
+
+
+
+
+
+
+
+		<!--Import jQuery before materialize.js-->
+		<script type="text/javascript"
+			src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript"
+			src="/materialize/js/materialize.min.js"></script>
+			
+			
+			<!-- Chamar o MENU lateral - ANDROID -->
+	<script type="text/javascript">
+			  
+			$(".button-collapse").sideNav();
+			
+			
+
+			$('.datepicker').pickadate({
+			    selectMonths: true, // Creates a dropdown to control month
+			    selectYears: 15, // Creates a dropdown of 15 years to control year,
+			    today: 'Today',
+			    clear: 'Clear',
+			    close: 'Ok',
+			    closeOnSelect: false // Close upon selecting a date,
+			  });
+			  
+			
+			$('.timepicker').pickatime({
+		    default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+		    fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+		    twelvehour: false, // Use AM/PM or 24-hour format
+		    donetext: 'OK', // text for done-button
+		    cleartext: 'Clear', // text for clear-button
+		    canceltext: 'Cancel', // Text for cancel-button
+		    autoclose: false, // automatic close timepicker
+		    ampmclickable: true, // make AM PM clickable
+		    aftershow: function(){} //Function for after opening timepicker
+		  });
+			
+			
+			 
+	</script>
+			
+</body>
+</html>
