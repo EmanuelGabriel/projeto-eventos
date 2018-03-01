@@ -2,14 +2,16 @@ package com.example.meuprojeto.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.meuprojeto.model.EventoModel;
 import com.example.meuprojeto.repository.EventoRepository;
 
 @Controller
+@RequestMapping("/evento")
 public class EventoController {
 	
 	private final String PAGINA_INICIAL = "index";
@@ -17,23 +19,33 @@ public class EventoController {
 	
 	@Autowired
 	private EventoRepository er;
-
 	
-	@RequestMapping(value = "/cadastrarEvento", method=RequestMethod.GET)
+	/*@GetMapping("/")
+	public String index() {
+		
+		return "evento/CadastroEvento";
+		
+	}*/
+	
+
+	@GetMapping("/cadastrarEvento")
 	public String form() {
 		
 		return "evento/CadastroEvento";
 	
 	}
 	
+	
+	
 
 	
-	@RequestMapping(value = "/cadastrarEvento", method=RequestMethod.POST)
+	//@RequestMapping(value = "/cadastrarEvento", method=RequestMethod.POST)
+	@PostMapping("/cadastrarEvento")
 	public String form(EventoModel evento) {
 		
 		er.save(evento);
 		
-		return "redirect:/cadastrarEvento";
+		return "redirect:/evento/cadastrarEvento";
 		
 	}
 	
